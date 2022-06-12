@@ -1,5 +1,6 @@
 package net.fabricmc.example.discordserver;
 
+
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.entities.MessageChannel;
@@ -16,7 +17,7 @@ public class DiscordBot extends ListenerAdapter {
     public final Logger LOGGER;
     private JDA client;
     private boolean initializeSuccessful = false;
-    private String CHAT_ID;
+    private static String CHAT_ID;
     private MCServer server;
     public DiscordBot(final Logger logger, final String TOKEN, final String _CHAT_ID, final MCServer _server){
         LOGGER = logger;
@@ -33,7 +34,7 @@ public class DiscordBot extends ListenerAdapter {
             LOGGER.error("Unable to initialize Discord Bot");
             throw new RuntimeException(e);
         }
-        client.addEventListener(new MessageListener(this));
+        client.addEventListener(new MessageListener(this, CHAT_ID));
         initializeSuccessful = true;
     }
     public boolean sendToDiscordChat(String message, ChatType type){

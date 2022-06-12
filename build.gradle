@@ -41,6 +41,19 @@ dependencies {
 	// modImplementation "net.fabricmc.fabric-api:fabric-api-deprecated:${project.fabric_version}"
 	// JDA
 	implementation("net.dv8tion:JDA:5.0.0-alpha.12")
+	include("net.dv8tion:JDA:5.0.0-alpha.12")
+	include("com.squareup.okio:okio:2.8.0")
+	include("com.squareup.okhttp3:okhttp:4.9.3")
+	include('org.apache.commons:commons-collections4:4.4')
+	include ('org.jetbrains.kotlin:kotlin-stdlib:1.6.21')
+	include('com.neovisionaries:nv-websocket-client:2.14')
+	// https://mvnrepository.com/artifact/net.sf.trove4j/trove4j
+	include 'net.sf.trove4j:trove4j:3.0.3'
+	include('com.fasterxml.jackson.core:jackson-core:2.13.2')
+	include('com.fasterxml.jackson.core:jackson-databind:2.13.2.2')
+	include("com.fasterxml.jackson.core:jackson-annotations:2.13.2")
+//	include( files('libs/JDA-5.0.0-alpha.12-withDependencies-no-opus.jar'))
+
 
 }
 

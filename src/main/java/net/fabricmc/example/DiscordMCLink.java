@@ -19,7 +19,7 @@ public class DiscordMCLink implements DedicatedServerModInitializer {
 	public static final Logger LOGGER = LoggerFactory.getLogger("DiscordMCLink");
 	private static SimpleConfig CONFIG = SimpleConfig.of(CONFIG_STRING).provider(
 			(String filename) ->{
-				return "#config\n#Double quote is not required for string\nTOKEN=\"null\"\nCHAT_ID=\"null\"";
+				return "#config\n#Double quote is not required for string\nTOKEN=null\nCHAT_ID=null";
 			}
 	).request();
 	private static final String TOKEN = CONFIG.getOrDefault("TOKEN",null);
@@ -38,7 +38,7 @@ public class DiscordMCLink implements DedicatedServerModInitializer {
 				server1 ->{
 					server = new MCServer(server1);
 					//! bot is loaded after the server start
-					if(discordBot == null || initializeFail)
+					if(discordBot == null && !initializeFail)
 						try {
 							discordBot = new DiscordBot(LOGGER, TOKEN, CHAT_ID, server);
 						} catch(RuntimeException e){
